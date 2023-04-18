@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <%- include('./partials/header_admin.ejs'),{user:user} %>
+        <script>
+            let cart_button = document.getElementById("show_button");
+            cart_button.innerText = "Show All Product";
+            cart_button.setAttribute("href", "/adminShowAllProduct");
+        </script>
+        <div class="container-fluid" style="margin-top:5%">
+            <div class="row justify-content-center align-items-center" style="height:75vh">
+                <div class="col-6 " style="background-color: aqua;">
+                    <form id="form" enctype="multipart/form-data">
+                        <div class="row justify-content-center mt-4">
+                            <h4 style="color: brown;">Add Product</h4>
+                        </div>
+                        <label for="product_name" style="font-size: large;">Product Name :</label><input class="ml-2"
+                            type="text" name="product_name" id="product_name" placeholder="Enter Product Name"
+                            style="width: 50%;" required><br>
+                        <label for="prices" style="font-size: large;">Prices ₹ :</label><input class="ml-4"
+                            type="number" min="0"  step="0.01" name="prices" id="prices" placeholder="Prices"
+                            style="width: 15%;" required><br>
+                        <br>
+                        <label for="quant" style="font-size: large;">Quantity :</label><input class="ml-4"
+                            type="number" min="0"  step="1" name="quantity" id="quant" placeholder="Quantity"
+                            style="width: 15%;" required><br>
+                        <br>
+                        <label for="seller" style="font-size: large;">Seller Name:</label><input class="ml-4"
+                            type="text" name="seller_name" id="seller" placeholder="seller Name"
+                            style="width: 40%;" required><br>
+                        <label style="font-size: large;">Descripation :</label>
+                        <textarea class="ml-2"
+                            name="description" id="description" style="width: 50%;height: 20%;"
+                            required></textarea>
+                        <br>
+                        <label style="font-size: large;">Add Product Img :</label><input class="ml-2" type="file"
+                            name="image" id="image" accept="image/*" style="width: 50%;height: 20%;" required><br>
+                        <div class="row justify-content-center mt-1" id="show" style="color: red;"></div><br>
+                        <div class="row justify-content-center"><input class="btn btn-warning" type="submit"
+                                value="Submit"></div>
+                        <br>
+                        <div class="d-flex justify-content-center"><span>or</span></div>
+                    </form>
+                    <form id="form_file" enctype="multipart/form-data">
+                        <label for="csv" style="font-size: large;">Upload CSV File:</label><input class="ml-2" type="file"
+                            name="csv" id="csv" accept=".csv" style="width: 50%;height: 20%;" required><br>
+                        <div class="row justify-content-center mt-1" id="show_file" style="color: red;"></div><br>
+                        <div class="row justify-content-center"><input class="btn btn-success mb-2" type="submit"
+                                value="Upload"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="product.js"></script>
+        <script src="adminfrom.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
